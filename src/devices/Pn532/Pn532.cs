@@ -862,7 +862,7 @@ namespace Iot.Device.Pn532
         /// <summary>
         /// Set the PN532 as a target, so as a card
         /// </summary>
-        public (TargetModeInitialized modeInialized, byte[] initiator) InitAsTarget(TargetModeInitialization mode,
+        public (TargetModeInitialized? modeInialized, byte[]? initiator) InitAsTarget(TargetModeInitialization mode,
             TargetMifareParameters mifare, TargetFeliCaParameters feliCa, TargetPiccParameters picc)
         {
             // First make sure we have the right mode in the parameters for the PICC only case
@@ -2112,9 +2112,9 @@ namespace Iot.Device.Pn532
         public void Dispose()
         {
             _spiDevice?.Dispose();
-            _spiDevice = null;
+            _spiDevice = null!;
             _i2cDevice?.Dispose();
-            _i2cDevice = null;
+            _i2cDevice = null!;
             if (_serialPort != null)
             {
                 if (_serialPort.IsOpen)
@@ -2124,7 +2124,7 @@ namespace Iot.Device.Pn532
             }
 
             _serialPort?.Dispose();
-            _serialPort = null;
+            _serialPort = null!;
         }
     }
 }
