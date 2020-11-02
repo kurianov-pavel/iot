@@ -134,7 +134,7 @@ namespace Iot.Device.Lsm9Ds1
         public void Dispose()
         {
             _i2c?.Dispose();
-            _i2c = null;
+            _i2c = null!;
         }
     }
 }
